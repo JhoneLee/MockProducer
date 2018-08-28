@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var commander = require('commander');
+const {mkServer} = require('../server/server');
+// commander.usage('<author>');
+// commander.on('--help',()=>{
+//     console.log('我是帮助');
+// });
+
+commander.command('open')
+         .option('--port [portNumber]',' 6000-65530 端口号')
+         .alias('o')
+         .description('按给定的端口号开启服务器')
+         .action(opt=>{
+            let {port} = opt;
+            mkServer(port);
+         })
+         .on('--help',()=>{
+            console.log('输入正常范围的端口号');
+         });
+commander.parse(process.argv);
