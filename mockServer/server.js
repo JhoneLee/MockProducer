@@ -2,7 +2,7 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-28 15:08:56
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-28 16:30:11
+* @Last Modified time: 2018-08-29 13:04:07
 */
 
 const Koa = require('koa');
@@ -14,10 +14,11 @@ const app = new Koa();
 app.use(koastatic(path.resolve(__dirname,'./json')));
 app.use(bodyparser());
 app.use(router.routes()).use(router.allowedMethods());
+
 const mkServer  = (port)=>{
     app.listen(port,()=>{
         console.log(`server open on ${port}`);
-    })
+    });
 }
 
 module.exports = {

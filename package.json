@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon ./server/index.js"
   },
   "bin": {
     "mkserver": "bin/mkserver"
@@ -22,9 +22,11 @@
   "homepage": "https://github.com/JhoneLee/MockProducer#readme",
   "dependencies": {
     "commander": "^2.17.1",
+    "ejs": "^2.6.1",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "koa-static": "^5.0.0"
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.4"
   }
 }

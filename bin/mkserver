@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var commander = require('commander');
-const {mkServer} = require('../server/server');
+const {mkServer} = require('../mockServer/server');
 // commander.usage('<author>');
 // commander.on('--help',()=>{
 //     console.log('我是帮助');
@@ -13,9 +13,27 @@ commander.command('open')
          .description('按给定的端口号开启服务器')
          .action(opt=>{
             let {port} = opt;
-            mkServer(port);
+            validatePort(port);
          })
          .on('--help',()=>{
             console.log('输入正常范围的端口号');
          });
 commander.parse(process.argv);
+
+
+function validatePort(port){
+    if(6000<=port && port <= 65530){
+        mkServer(port)
+    } else {
+        console.log('输入6000-65530的端口号');
+    }
+}
+// 监听全部异常
+process.on('uncaughtException', function(err) {
+    if(err.errno == 'EADDRINUSE'){
+        console.log(`${err.port}已经被占用，重新输入端口`)
+    } else {
+        console.log(err);
+    }
+    process.exit(1);
+});  
