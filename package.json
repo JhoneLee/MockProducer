@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon ./server/index.js"
+    "server": "nodemon ./server/pre.js"
   },
   "bin": {
     "mkserver": "bin/mkserver"
@@ -21,12 +21,19 @@
   },
   "homepage": "https://github.com/JhoneLee/MockProducer#readme",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
     "commander": "^2.17.1",
     "ejs": "^2.6.1",
+    "ioredis": "^4.0.0",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
+    "koa-session2": "^1.0.9",
     "koa-static": "^5.0.0",
-    "koa-views": "^6.1.4"
+    "koa-views": "^6.1.4",
+    "uuid": "^3.3.2"
   }
 }

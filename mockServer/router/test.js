@@ -2,10 +2,10 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-28 15:15:11
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-28 16:39:43
+* @Last Modified time: 2018-08-30 15:29:19
 */
 
-const Router = require('koa-router');
+import Router from 'koa-router';
 const router = new Router();
 const json = require('../../json/test.json');
 router.get('/test',async (ctx,next)=>{
@@ -15,4 +15,4 @@ router.get('/test',async (ctx,next)=>{
     ctx.body = json;
 });
 
-module.exports = router;
+export default router;

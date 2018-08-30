@@ -2,14 +2,14 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-28 15:08:56
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-29 13:04:07
+* @Last Modified time: 2018-08-30 15:34:50
 */
 
-const Koa = require('koa');
-const koastatic = require('koa-static');
-const path = require('path');
-const bodyparser = require('koa-bodyparser');
-const router = require('./router');
+import Koa from 'koa';
+import koastatic from 'koa-static';
+import path from 'path';
+import bodyparser from 'koa-bodyparser';
+import router from './router';
 const app = new Koa();
 app.use(koastatic(path.resolve(__dirname,'./json')));
 app.use(bodyparser());
@@ -21,7 +21,5 @@ const mkServer  = (port)=>{
     });
 }
 
-module.exports = {
-    mkServer
-}
+export default mkServer;
 

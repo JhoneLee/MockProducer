@@ -8,9 +8,22 @@
     <body>
         <h1>我是mkserver</h1>
         <div>
-            <button id="btn">点击生成服务器</button>
+            <button id="btn">点击生成服务器</button><br/>
+            <button id="redis">点击操作redis</button>
         </div>
         <script type="text/javascript">
+            $('#redis').click(function(){
+                $.ajax({
+                    url:'/api/redis',
+                    success:function(res){
+                        console.log('success',res);
+                    },
+                    error:function(e){
+                        console.log('error',e);
+                    }
+                });
+            });
+
             $('#btn').click(function(){
                 $.ajax({
                     url:'/api/mkserver',
@@ -20,7 +33,7 @@
                     error:function(e){
                         console.log('error',e);
                     }
-                })
+                });
             });
         </script>
     </body>

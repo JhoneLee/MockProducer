@@ -2,15 +2,15 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-29 16:49:58
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-29 17:16:47
+* @Last Modified time: 2018-08-30 15:39:03
 */
 
-const koa = require('koa');
-const views = require('koa-views');
-const bodyparser = require('koa-bodyparser');
-const path = require('path');
-const page = require('./page');
-const api = require('./api');
+import koa from 'koa';
+import views from 'koa-views';
+import bodyparser from 'koa-bodyparser';
+import path from 'path';
+import page from './page';
+import api from './api';
 let app = new koa();
 // 使用模板
 app.use(views(path.resolve(__dirname,'./views'),{

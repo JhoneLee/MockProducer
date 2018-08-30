@@ -2,10 +2,10 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-29 17:00:37
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-29 17:02:02
+* @Last Modified time: 2018-08-30 15:26:59
 */
 
-const Router = require('koa-router');
+import Router from 'koa-router';
 const router = new Router();
 
 router.get('/server',async (ctx,next)=>{
@@ -15,4 +15,4 @@ router.get('/server',async (ctx,next)=>{
     });
 });
 
-module.exports = router;
+export default router;
