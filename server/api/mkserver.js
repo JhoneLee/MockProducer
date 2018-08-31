@@ -2,23 +2,22 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-29 17:15:30
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-30 16:14:02
+* @Last Modified time: 2018-08-31 17:32:10
 */
 
 import Router from 'koa-router';
 const router = new Router();
 // import {checkPortOccupied} from '../../utils/checkPort';
 import checkPortOccupied from '../../utils/checkPort';
-console.log(checkPortOccupied,'out');
+import {mkInterfaceMap} from '../../mockServer/jsonRouter';
 import mkServer from '../../mockServer/server';
 let port = 6200;
 router.get('/mkserver',async (ctx,next)=>{
     ctx.status = 200;
-    console.log(checkPortOccupied,'inner');
     let result = await checkPortOccupied(port);
-    console.log(result);
     if(typeof result == 'number'){
-        mkServer(result)
+        let routes = await mkInterfaceMap('a881798c-1aca-4f7f-8bd5-9e55e89be4f2','test');
+        mkServer(result,routes);
         ctx.body = {
             status:0,
             data:{

@@ -1,0 +1,11 @@
+{
+    "status":0,
+    "data":{
+        "list":[
+            {
+                "name":"jack"
+            }
+        ]
+    },
+    "statusInfo":"success"
+}

@@ -9,7 +9,14 @@
         <h1>我是mkserver</h1>
         <div>
             <button id="btn">点击生成服务器</button><br/>
-            <button id="redis">点击操作redis</button>
+            <br/>
+            <button id="redis">点击操作redis</button><br/>
+            <br/>
+            <button id="makeuser">生成一个用户</button><br/>
+            <br/>
+            <button id="makeinter">生成一个接口</button><br/>
+            <br/>
+            <button id="makemap">生成接口地图</button>
         </div>
         <script type="text/javascript">
             $('#redis').click(function(){
@@ -27,6 +34,42 @@
             $('#btn').click(function(){
                 $.ajax({
                     url:'/api/mkserver',
+                    success:function(res){
+                        console.log('success',res);
+                    },
+                    error:function(e){
+                        console.log('error',e);
+                    }
+                });
+            });
+
+            $('#makeuser').on('click',function(){
+                $.ajax({
+                    url:'/api/makeuser',
+                    success:function(res){
+                        console.log('success',res);
+                    },
+                    error:function(e){
+                        console.log('error',e);
+                    }
+                });
+            });
+
+            $('#makeinter').on('click',function(){
+                $.ajax({
+                    url:'/api/mkinterface',
+                    success:function(res){
+                        console.log('success',res);
+                    },
+                    error:function(e){
+                        console.log('error',e);
+                    }
+                });
+            });
+
+            $('#makemap').click(function(){
+                $.ajax({
+                    url:'/api/mkmap',
                     success:function(res){
                         console.log('success',res);
                     },
