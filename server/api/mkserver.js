@@ -2,15 +2,15 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-29 17:15:30
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-31 17:32:10
+* @Last Modified time: 2018-09-06 13:49:10
 */
 
 import Router from 'koa-router';
 const router = new Router();
 // import {checkPortOccupied} from '../../utils/checkPort';
 import checkPortOccupied from '../../utils/checkPort';
-import {mkInterfaceMap} from '../../mockServer/jsonRouter';
-import mkServer from '../../mockServer/server';
+import {mkInterfaceMap} from '../../producer/router';
+import mkServer from '../../producer/server';
 let port = 6200;
 router.get('/mkserver',async (ctx,next)=>{
     ctx.status = 200;

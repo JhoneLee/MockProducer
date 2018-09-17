@@ -2,7 +2,7 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-31 16:01:16
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-31 17:35:34
+* @Last Modified time: 2018-09-06 13:44:10
 */
 
 import {redis} from '../../redis';
@@ -10,7 +10,7 @@ import Router from 'koa-router';
 import path from 'path';
 const router = new Router();
 
-// 获取接口对象
+// 根据uuid及项目名称获取全部接口 并 返回路由
 export async function mkInterfaceMap(uuid,project){
     // 通过uuid 获取用户的项目
     let key = `map:${uuid}:${project}`;
@@ -20,6 +20,7 @@ export async function mkInterfaceMap(uuid,project){
         res = res.split(',');
         for(let i=0;i<res.length;i++){
             let e = res[i];
+            // 获取接口数据
             let key = `interface:${uuid}:${project}:${e}`;
             let myInterface = await redis.hgetall(key).then(r=>r).catch(e=>{
                 return {error:e};
@@ -28,13 +29,15 @@ export async function mkInterfaceMap(uuid,project){
                 ifArr.push(myInterface);
             }
         }
-        return bindServer(ifArr);
+        // 绑定到路由并返回
+        return bind2Router(ifArr);
     } else {
         return false;
     }
 }
 
-function bindServer(arr){
+// 将接口数据项绑定到路由
+function bind2Router(arr){
     arr.forEach((e,i)=>{
         let {method,jsonPath,uri,mockjs} = e;
         method = method == 1 ? 'get':'post';

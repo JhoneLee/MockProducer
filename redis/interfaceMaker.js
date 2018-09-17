@@ -2,7 +2,7 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-31 11:21:16
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-31 15:55:46
+* @Last Modified time: 2018-09-06 13:28:00
 */
 
 import {redis} from './index';
@@ -28,7 +28,7 @@ export async function makeDocument(opt){
 
 }
 
-// 构建mockServer接口表
+// 构建producer接口表
 export async function makeMock(opt){
 
 }
