@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon ./server/pre.js"
+    "dev": "nodemon --harmony ./server/pre.js -i server/dist -w ./server",
+    "build": "webpack --config ./config/webpack.config.prod.js",
+    "deve": "webpack --config ./config/webpack.config.dev.js"
   },
   "bin": {
     "mkserver": "bin/mkserver"
@@ -21,19 +23,48 @@
   },
   "homepage": "https://github.com/JhoneLee/MockProducer#readme",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "@babel/core": "^7.1.2",
+    "babel": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "commander": "^2.17.1",
     "ejs": "^2.6.1",
     "ioredis": "^4.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "koa-session2": "^1.0.9",
     "koa-static": "^5.0.0",
     "koa-views": "^6.1.4",
-    "uuid": "^3.3.2"
+    "less": "^3.0.4",
+    "url-search-params": "^0.10.0",
+    "uuid": "^3.3.2",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.5.17",
+    "vue-template-compiler": "^2.5.16",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "vue-loader": "^14.2.3",
+    "vue-style-loader": "^4.1.2",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-hot-middleware": "^2.24.3"
   }
 }

@@ -2,10 +2,9 @@
 * @Author: liyunjiao2048@163.com
 * @Date:   2018-08-30 15:19:54
 * @Last Modified by:   liyunjiao2048@163.com
-* @Last Modified time: 2018-08-30 15:22:42
+* @Last Modified time: 2018-10-15 13:57:24
 */
 
-require('babel-polyfill');
 var br = require('babel-register');
 var fs = require('fs');
 var path = require('path');

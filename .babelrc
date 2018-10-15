@@ -1,6 +1,12 @@
 {
   "presets": [
-    ["latest", {"modules": false}],
-    ["stage-0"]
-  ]
+        ["env",{
+            "targets": {
+                "node": "current"
+            }
+        }]
+    ],
+    "plugins":[
+        "transform-object-rest-spread"
+    ]
 }
